@@ -4,27 +4,56 @@ const app = document.getElementById('app');
 app.innerHTML = '<h1>JavaScript Basics</h1>';
 
 
-// function makeCarPrice(...params){
-// const total = params.reduce((prev,next)=> prev+next)
+// //scope 1
+// const anotherid = "123abfda"
 
-// console.log(`total ${total}`);
-// return total;
+// function makeCarPartid(id){
+// //scope 2
+
+// function anotherFunction(){
+//     //scope 3 look in scope then go up the chain
+//     const someId="adf";
+//     console.log(id,anotherid,someId)
+//     }
 // }
 
-//make a arrow function
-// const makeCarPrice =(...params)=>{
-//     const total = params.reduce((prev,next)=> prev+next)
-    
-//     console.log(`total ${total}`);
-//     return total;
+// makeCarPartid('xdsafaf');
+// ///console.log(id);
+
+// function makeCarParId(id){
+//     const theId = `CAR_PART_${id}`
+//     return theId;
+// }
+
+// function makeCarParId(id){
+//     const theId = `CAR_PART_${id}`
+//     console.log(`create ${theId}`)
+//     return function(){
+//         console.log(theId);
 //     }
+// }
+
+// function makeCarParId(id){
+//     const theId = `CAR_PART_${id}`
+//     console.log(`create ${theId}`)
+//     return function(name){
+//         return `${theId}_${name.toUpperCase()}`
+//     }
+// }
 
 
-//refactor code
+//arrow function
 
-const makeCarPrice =(...params)=> params.reduce((prev,next)=> prev+next)
+function makeCarParId(id){
+    const theId = `CAR_PART_${id}`
+    console.log(`create ${theId}`)
+    return (name) => `${theId}_${name.toUpperCase()}`
+    
+}
+const carPartId = makeCarParId('affeaf');
+console.log(carPartId("LEFT DOOR") );
+console.log(carPartId("RIGHT DOOR") );
 
-const totalPrice=makeCarPrice(1,2,3,4,5,6,7)
-console.log(`new total ${totalPrice}`)
-//call function from string literal
-console.log(`${makeCarPrice(1,2,3)}`)
+const anothercarPartId = makeCarParId('faeafasf');
+console.log(anothercarPartId("LEFT DOOR") );
+console.log(anothercarPartId("RIGHT DOOR") );
