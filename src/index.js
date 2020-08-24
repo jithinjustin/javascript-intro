@@ -3,20 +3,26 @@ import '../assets/css/style.css';
 const app = document.getElementById('app');
 app.innerHTML = '<h1>JavaScript Basics</h1>';
 
-// ----
-// const carPartId = (function(id) {
-//     const theId = `CAR_PART_${id}`;
-//     return function(name) {
-//       return `${theId}_${name}`;
-//     };
-//   })('x7H8sFf');
+
+// function carPart(name, fn){
+
+//     fn();
+
+
+// }
+
+// carPart("hello",function(){
+//     console.log("I am callback");
+// })
   
-const carPartId = (function(id) {
-    const theId = `CAR_PART_${id}`;
-    return (name) => `${theId}_${name}`; 
-  })('x7H8sFf');
-  console.log(carPartId)
-  console.log(carPartId('Left Door'));
-  console.log(carPartId('Right Door'));
-  console.log(carPartId('Windscreen'));
+
+function carPartId(name, fn) {
+    const theId = `CAR_PART_x8zOsl`;
+    return fn(`${theId}_${name}`);
+  }
   
+  const carPart = carPartId('Left Door', function(id) {
+    return `Car Part ID: ${id}`;
+  });
+  
+  console.log(carPart);
