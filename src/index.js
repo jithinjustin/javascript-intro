@@ -3,26 +3,28 @@ import '../assets/css/style.css';
 const app = document.getElementById('app');
 app.innerHTML = '<h1>JavaScript Basics</h1>';
 
-function makeCarPrice(){
-  //arguments object old way
-    console.log(arguments)
-    console.log(arguments[0])
-    console.log("iterating over arguments")
-    Array.from(arguments).forEach((a)=>console.log(a))
 
-   const total = Array.from(arguments).reduce((prev, next)=> prev+next)
-  
-    console.log("total "+total)
+// function makeCarPrice(...params){
+// const total = params.reduce((prev,next)=> prev+next)
 
-}
+// console.log(`total ${total}`);
+// return total;
+// }
 
-makeCarPrice(1,2,3);
-//rest parameter
-//at the end of list
-function makeCarPriceRest(number,...params){
-console.log(params)
-const total =params.reduce((prev, next)=>prev+next)
-console.log(`total ${total}`)
-}
+//make a arrow function
+// const makeCarPrice =(...params)=>{
+//     const total = params.reduce((prev,next)=> prev+next)
+    
+//     console.log(`total ${total}`);
+//     return total;
+//     }
 
-makeCarPriceRest(1,2,3);
+
+//refactor code
+
+const makeCarPrice =(...params)=> params.reduce((prev,next)=> prev+next)
+
+const totalPrice=makeCarPrice(1,2,3,4,5,6,7)
+console.log(`new total ${totalPrice}`)
+//call function from string literal
+console.log(`${makeCarPrice(1,2,3)}`)
